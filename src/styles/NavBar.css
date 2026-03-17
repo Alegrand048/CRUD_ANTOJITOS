@@ -1,0 +1,174 @@
+.navbar-figma {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 0;
+  background-color: #dfd0b6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-figma.navbar-auth {
+  background: rgba(23, 22, 29, 0.95);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-figma.navbar-auth .logo-brand,
+.navbar-figma.navbar-auth .nav-menu a,
+.navbar-figma.navbar-auth .nav-disabled,
+.navbar-figma.navbar-auth .user-name {
+  color: #f4f4f4;
+}
+
+.navbar-figma.navbar-auth .nav-menu a.active {
+  border-bottom-color: #f4f4f4;
+}
+
+.navbar-figma.navbar-auth .user-avatar {
+  background: #2b2b2f;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.main-container {
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-brand {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.cart-btn {
+  border: 1px solid rgba(59, 42, 23, 0.22);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+  background: rgba(255, 248, 239, 0.92);
+  color: #3b2a17;
+  cursor: default;
+  box-shadow: 0 6px 14px rgba(59, 42, 23, 0.1);
+}
+
+.navbar-figma.navbar-auth .cart-btn {
+  color: #f4f4f4;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.api-status-pill {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: rgba(143, 47, 47, 0.92);
+  color: #fff;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.nav-disabled {
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  cursor: default;
+}
+
+.nav-menu a.active {
+  border-bottom: 2px solid #000;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-btn {
+  border: none;
+  padding: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logout-btn {
+  border: 1px solid rgba(59, 42, 23, 0.18);
+  border-radius: 999px;
+  padding: 9px 16px;
+  background: rgba(255, 248, 239, 0.78);
+  color: #3b2a17;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(59, 42, 23, 0.08);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.96);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(59, 42, 23, 0.12);
+}
+
+.navbar-figma:not(.navbar-auth) .logout-btn {
+  backdrop-filter: blur(6px);
+}
+
+.navbar-figma.navbar-auth .logout-btn {
+  color: #f4f4f4;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.navbar-figma.navbar-auth .logout-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.user-name { font-weight: 800; font-size: 0.9rem; }
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  display: block;
+  background: #333;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.user-avatar:hover {
+  opacity: 0.8;
+}

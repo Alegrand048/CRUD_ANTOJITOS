@@ -1,0 +1,82 @@
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import "../styles/NavBar.css";
+import { limpiarSesion, obtenerSesion } from "../services/authSession";
+import { obtenerPerfil } from "../services/profileStorage";
+
+export default function Navbar() {
+  const { pathname } = useLocation();
+  const navegar = useNavigate();
+  const esPaginaAuth = pathname === "/login" || pathname === "/register";
+  const [perfil, setPerfil] = useState(() => obtenerPerfil());
+  const [sesion, setSesion] = useState(() => obtenerSesion());
+  const [apiEnLinea, setApiEnLinea] = useState(true);
+
+  useEffect(() => {
+    const sincPerfil = () => setPerfil(obtenerPerfil());
+    const sincSesion = () => setSesion(obtenerSesion());
+    const sincApi = (event) => setApiEnLinea(Boolean(event?.detail?.isOnline));
+
+    window.addEventListener("profile-updated", sincPerfil);
+    window.addEventListener("storage", sincPerfil);
+    window.addEventListener("session-updated", sincSesion);
+    window.addEventListener("storage", sincSesion);
+    window.addEventListener("api-status", sincApi);
+
+    return () => {
+      window.removeEventListener("profile-updated", sincPerfil);
+      window.removeEventListener("storage", sincPerfil);
+      window.removeEventListener("session-updated", sincSesion);
+      window.removeEventListener("storage", sincSesion);
+      window.removeEventListener("api-status", sincApi);
+    };
+  }, []);
+
+  const cerrar = () => {
+    limpiarSesion();
+    navegar("/login", { replace: true });
+  };
+
+  const nombreMostrar = sesion.estaLogueado ? sesion.usuario : perfil.nombre;
+  const fotoMostrar = sesion.estaLogueado ? sesion.foto || perfil.foto : perfil.foto;
+
+  return (
+    <nav className={`navbar-figma ${esPaginaAuth ? "navbar-auth" : ""}`}>
+      <div className="nav-container main-container">
+        <div className="logo-brand">
+          <span className="icon">🍔</span> ANTOJITOS
+        </div>
+        
+        <div className="nav-right">
+          {!apiEnLinea ? <span className="api-status-pill">API desconectada</span> : null}
+          <ul className="nav-menu">
+            <li><Link to="/inicio" className={pathname === "/inicio" ? "active" : ""}>Inicio</Link></li>
+            {sesion.esAdmin ? (
+              <li><Link to="/menu" className={pathname === "/menu" ? "active" : ""}>Productos</Link></li>
+            ) : null}
+            {sesion.esAdmin ? (
+              <li><Link to="/usuarios" className={pathname === "/usuarios" ? "active" : ""}>Usuarios</Link></li>
+            ) : null}
+            <li><span className="nav-disabled">Ajustes</span></li>
+            <li><Link to="/acerca" className={pathname === "/acerca" ? "active" : ""}>Acerca de</Link></li>
+            <li><span className="nav-disabled">Contacto</span></li>
+          </ul>
+          <div className="user-profile">
+            <button type="button" className="cart-btn" title="Carrito" aria-label="Carrito">
+              🛒
+            </button>
+            <span className="user-name">{nombreMostrar}</span>
+            <button type="button" className="avatar-btn" aria-label="Perfil de usuario">
+              <img src={fotoMostrar} alt="avatar de usuario" className="user-avatar" />
+            </button>
+            {sesion.estaLogueado ? (
+              <button type="button" className="logout-btn" onClick={cerrar}>
+                Cerrar sesion
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}

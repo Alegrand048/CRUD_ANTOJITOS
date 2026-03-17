@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "LA BUAHH",
+    "precio": 11,
+    "imageKey": "laBuahh",
+    "descripcion": "Hamburguesa smash con doble queso y bacon crujiente"
+  },
+  {
+    "id": 2,
+    "nombre": "PLATON DE PATATAS",
+    "precio": 7,
+    "imageKey": "platonPatatas",
+    "descripcion": "Patatas con queso fundido, salsas y topping crujiente"
+  },
+  {
+    "id": 3,
+    "nombre": "EL TSUNAMI",
+    "precio": 18,
+    "imageKey": "elTsunami",
+    "descripcion": "Hamburguesa grande con salsa cremosa y extra de carne"
+  },
+  {
+    "id": 4,
+    "nombre": "MINI GUSTOS",
+    "precio": 6,
+    "imageKey": "miniGustos",
+    "descripcion": "Croquetas variadas con interior cremoso y crujiente"
+  },
+  {
+    "id": 5,
+    "nombre": "LA ANTI CARNE",
+    "precio": 10,
+    "imageKey": "laAntiCarne",
+    "descripcion": "Burger vegetal con queso, tomate y lechuga fresca"
+  },
+  {
+    "id": 6,
+    "nombre": "EL REY DE LOS PUERCOS",
+    "precio": 25,
+    "imageKey": "reyPuercos",
+    "descripcion": "Especial de la casa con carne premium y sabor ahumado"
+  }
+]

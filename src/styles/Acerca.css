@@ -1,0 +1,71 @@
+.acerca-page {
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  padding: 16px 16px 48px;
+  box-sizing: border-box;
+  background-color: #f2e8d5;
+  background-image: url("../assets/FondoInicio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.acerca-card {
+  width: min(700px, 92vw);
+  color: #1d1f22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 28px;
+}
+
+.acerca-logo {
+  font-size: 5.6rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.acerca-card h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.acerca-card p {
+  max-width: 620px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+@media (max-width: 768px) {
+  .acerca-page {
+    min-height: calc(100vh - 56px);
+    padding: 12px;
+  }
+
+  .acerca-card {
+    width: min(520px, 92vw);
+    padding: 18px 16px;
+  }
+
+  .acerca-logo {
+    font-size: 4.2rem;
+  }
+
+  .acerca-card h1 {
+    font-size: 3rem;
+  }
+
+  .acerca-card p {
+    font-size: 1.12rem;
+    line-height: 1.24;
+  }
+}
