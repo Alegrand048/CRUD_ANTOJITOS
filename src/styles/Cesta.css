@@ -1,0 +1,176 @@
+.cesta-page {
+  min-height: calc(100vh - 65px);
+  padding: 28px 40px 40px;
+  background: #f2e8d5;
+}
+
+.cesta-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  border: 1px solid rgba(59, 42, 23, 0.15);
+  box-shadow: 0 14px 28px rgba(59, 42, 23, 0.1);
+  padding: 22px;
+}
+
+.cesta-header h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+}
+
+.cesta-header p {
+  margin: 0 0 18px;
+  color: #5b4833;
+  font-weight: 600;
+}
+
+.cesta-empty {
+  text-align: center;
+  padding: 28px 12px;
+}
+
+.cesta-empty a {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+  background: #1f1f1f;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.cesta-list {
+  display: grid;
+  gap: 10px;
+}
+
+.cesta-item {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 250, 244, 0.95);
+  border: 1px solid rgba(59, 42, 23, 0.16);
+}
+
+.cesta-item img {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cesta-item-info h3 {
+  margin: 0 0 4px;
+}
+
+.cesta-item-info p {
+  margin: 0;
+  color: #5b4833;
+  font-weight: 700;
+}
+
+.cesta-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 42, 23, 0.24);
+  background: #fff;
+}
+
+.qty-control button,
+.remove-btn,
+.cesta-summary-actions button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.qty-control button {
+  width: 28px;
+  height: 28px;
+  background: #3f2e1d;
+  color: #fff;
+}
+
+.qty-control span {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.remove-btn {
+  background: #8f2f2f;
+  color: #fff;
+  padding: 8px 12px;
+}
+
+.cesta-summary {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(59, 42, 23, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.cesta-summary strong {
+  font-size: 1.2rem;
+}
+
+.cesta-summary-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cesta-summary-actions button {
+  background: #3f2e1d;
+  color: #fff;
+  padding: 10px 14px;
+}
+
+.cesta-summary-actions button.secondary {
+  background: #b39a7b;
+  color: #2a1a0d;
+}
+
+.cesta-summary-actions button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .cesta-page {
+    padding: 20px 16px 26px;
+  }
+
+  .cesta-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cesta-item img {
+    margin: 0 auto;
+  }
+
+  .cesta-item-actions,
+  .cesta-summary,
+  .cesta-summary-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

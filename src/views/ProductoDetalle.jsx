@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/ProductoDetalle.css";
 import { obtenerProductos } from "../services/productStorage";
+import { anadirACesta } from "../services/cartStorage";
 
 export default function ProductoDetalle() {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+  const [msg, setMsg] = useState("");
 
   useEffect(() => {
     let activo = true;
@@ -36,6 +38,11 @@ export default function ProductoDetalle() {
     );
   }
 
+  const anadir = () => {
+    anadirACesta(producto, 1);
+    setMsg("Producto anadido a la cesta");
+  };
+
   return (
     <section className="product-detail-page">
       <article className="product-detail-card">
@@ -49,6 +56,11 @@ export default function ProductoDetalle() {
           <p className="product-detail-description">
             {producto.descripcion || "Producto disponible en nuestro catalogo"}
           </p>
+          {msg ? <p className="product-detail-msg">{msg}</p> : null}
+          <div className="product-detail-actions">
+            <button type="button" className="product-detail-add" onClick={anadir}>Anadir a la cesta</button>
+            <Link to="/cesta" className="product-detail-basket-link">Ver cesta</Link>
+          </div>
           <Link to="/inicio" className="product-detail-back">Volver al catalogo</Link>
         </div>
       </article>

@@ -54,6 +54,7 @@
 }
 
 .cart-btn {
+  position: relative;
   border: 1px solid rgba(59, 42, 23, 0.22);
   border-radius: 999px;
   width: 36px;
@@ -66,8 +67,31 @@
   line-height: 1;
   background: rgba(255, 248, 239, 0.92);
   color: #3b2a17;
-  cursor: default;
+  cursor: pointer;
   box-shadow: 0 6px 14px rgba(59, 42, 23, 0.1);
+}
+
+.cart-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(59, 42, 23, 0.14);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #8f2f2f;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .navbar-figma.navbar-auth .cart-btn {

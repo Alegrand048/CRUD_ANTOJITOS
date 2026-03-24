@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import { limpiarSesion, obtenerSesion } from "../services/authSession";
 import { obtenerPerfil } from "../services/profileStorage";
+import { contarUnidadesCesta } from "../services/cartStorage";
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -11,17 +12,21 @@ export default function Navbar() {
   const [perfil, setPerfil] = useState(() => obtenerPerfil());
   const [sesion, setSesion] = useState(() => obtenerSesion());
   const [apiEnLinea, setApiEnLinea] = useState(true);
+  const [unidadesCesta, setUnidadesCesta] = useState(() => contarUnidadesCesta());
 
   useEffect(() => {
     const sincPerfil = () => setPerfil(obtenerPerfil());
     const sincSesion = () => setSesion(obtenerSesion());
     const sincApi = (event) => setApiEnLinea(Boolean(event?.detail?.isOnline));
+    const sincCesta = () => setUnidadesCesta(contarUnidadesCesta());
 
     window.addEventListener("profile-updated", sincPerfil);
     window.addEventListener("storage", sincPerfil);
     window.addEventListener("session-updated", sincSesion);
     window.addEventListener("storage", sincSesion);
     window.addEventListener("api-status", sincApi);
+    window.addEventListener("cart-updated", sincCesta);
+    window.addEventListener("storage", sincCesta);
 
     return () => {
       window.removeEventListener("profile-updated", sincPerfil);
@@ -29,6 +34,8 @@ export default function Navbar() {
       window.removeEventListener("session-updated", sincSesion);
       window.removeEventListener("storage", sincSesion);
       window.removeEventListener("api-status", sincApi);
+      window.removeEventListener("cart-updated", sincCesta);
+      window.removeEventListener("storage", sincCesta);
     };
   }, []);
 
@@ -62,8 +69,15 @@ export default function Navbar() {
             <li><span className="nav-disabled">Contacto</span></li>
           </ul>
           <div className="user-profile">
-            <button type="button" className="cart-btn" title="Carrito" aria-label="Carrito">
+            <button
+              type="button"
+              className="cart-btn"
+              title="Ir a la cesta"
+              aria-label="Ir a la cesta"
+              onClick={() => navegar("/cesta")}
+            >
               🛒
+              {unidadesCesta > 0 ? <span className="cart-count">{unidadesCesta}</span> : null}
             </button>
             <span className="user-name">{nombreMostrar}</span>
             <button type="button" className="avatar-btn" aria-label="Perfil de usuario">

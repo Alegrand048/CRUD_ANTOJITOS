@@ -6,6 +6,7 @@ import Acerca from "./views/Acerca";
 import Menu from "./views/Menu";
 import ProductoDetalle from "./views/ProductoDetalle";
 import Usuarios from "./views/Usuarios";
+import Cesta from "./views/Cesta";
 import Navbar from "./components/Navbar";
 import { obtenerSesion } from "./services/authSession";
 
@@ -68,6 +69,14 @@ function App() {
             element={(
               <RutaProtegida>
                 <ProductoDetalle />
+              </RutaProtegida>
+            )}
+          />
+          <Route
+            path="/cesta"
+            element={(
+              <RutaProtegida>
+                <Cesta />
               </RutaProtegida>
             )}
           />
