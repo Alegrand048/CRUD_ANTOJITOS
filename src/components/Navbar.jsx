@@ -50,14 +50,14 @@ export default function Navbar() {
   return (
     <nav className={`navbar-figma ${esPaginaAuth ? "navbar-auth" : ""}`}>
       <div className="nav-container main-container">
-        <div className="logo-brand">
+        <Link to="/inicio" className="logo-brand">
           <span className="icon">🍔</span> ANTOJITOS
-        </div>
+        </Link>
         
         <div className="nav-right">
-          {!apiEnLinea ? <span className="api-status-pill">API desconectada</span> : null}
           <ul className="nav-menu">
             <li><Link to="/inicio" className={pathname === "/inicio" ? "active" : ""}>Inicio</Link></li>
+            <li><Link to="/acerca" className={pathname === "/acerca" ? "active" : ""}>Acerca de</Link></li>
             {sesion.esAdmin ? (
               <li><Link to="/menu" className={pathname === "/menu" ? "active" : ""}>Productos</Link></li>
             ) : null}
@@ -65,29 +65,31 @@ export default function Navbar() {
               <li><Link to="/usuarios" className={pathname === "/usuarios" ? "active" : ""}>Usuarios</Link></li>
             ) : null}
             <li><span className="nav-disabled">Ajustes</span></li>
-            <li><Link to="/acerca" className={pathname === "/acerca" ? "active" : ""}>Acerca de</Link></li>
             <li><span className="nav-disabled">Contacto</span></li>
           </ul>
-          <div className="user-profile">
-            <button
-              type="button"
-              className="cart-btn"
-              title="Ir a la cesta"
-              aria-label="Ir a la cesta"
-              onClick={() => navegar("/cesta")}
-            >
-              🛒
-              {unidadesCesta > 0 ? <span className="cart-count">{unidadesCesta}</span> : null}
-            </button>
-            <span className="user-name">{nombreMostrar}</span>
-            <button type="button" className="avatar-btn" aria-label="Perfil de usuario">
-              <img src={fotoMostrar} alt="avatar de usuario" className="user-avatar" />
-            </button>
-            {sesion.estaLogueado ? (
-              <button type="button" className="logout-btn" onClick={cerrar}>
-                Cerrar sesion
+          <button
+            type="button"
+            className="cart-btn-main"
+            title="Ir a la cesta"
+            aria-label="Ir a la cesta"
+            onClick={() => navegar("/cesta")}
+          >
+            🛒
+            {unidadesCesta > 0 ? <span className="cart-count">{unidadesCesta}</span> : null}
+          </button>
+          <div className="nav-actions">
+            {!apiEnLinea ? <span className="api-status-pill">API desconectada</span> : null}
+            <div className="user-profile">
+              <span className="user-name">{nombreMostrar}</span>
+              <button type="button" className="avatar-btn" aria-label="Perfil de usuario">
+                <img src={fotoMostrar} alt="avatar de usuario" className="user-avatar" />
               </button>
-            ) : null}
+              {sesion.estaLogueado ? (
+                <button type="button" className="logout-btn" onClick={cerrar}>
+                  Cerrar sesion
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
