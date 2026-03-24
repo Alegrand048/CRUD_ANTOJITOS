@@ -98,6 +98,14 @@
   font-size: 1.05rem;
   background: rgba(240, 236, 242, 0.92);
   color: #25212b;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 .register-form button {
@@ -112,11 +120,13 @@
   font-weight: 800;
   line-height: 1;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .register-form button:hover {
   background: rgba(41, 40, 50, 0.95);
+  transform: scale(1.04) translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .register-login-link {

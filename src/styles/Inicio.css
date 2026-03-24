@@ -7,8 +7,9 @@
   background-color: #f2e8d5;
   background-image: url("../assets/FondoInicio.png");
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* BARRA SUPERIOR */
@@ -67,11 +68,20 @@
 
 .search-bar input {
   width: 450px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 25px;
-  border: 1px solid #1a1a1a;
-  background: transparent;
-  font-size: 0.9rem;
+  border: 2px solid #1a1a1a;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #8f2f2f;
+  box-shadow: 0 6px 20px rgba(143, 47, 47, 0.2);
+  transform: translateY(-2px);
 }
 
 .admin-access-bar {

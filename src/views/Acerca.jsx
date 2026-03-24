@@ -11,7 +11,7 @@ export default function Acerca() {
           <br />
           en el ano 2025 por 2 unicos
           <br />
-          duenos llamados
+          dueños llamados
           <br />
           Alejandro Betanzos Alvarez
           <br />

@@ -38,6 +38,13 @@
   font-weight: 700;
   background: #8f2f2f;
   color: #fff;
+  transition: all 0.3s ease;
+}
+
+.usuarios-reset-btn:hover {
+  background: #a84040;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .usuarios-form {
@@ -56,6 +63,13 @@
   border: 1px solid rgba(59, 42, 23, 0.24);
   background: #fff;
   color: #2a1a0d;
+  transition: all 0.3s ease;
+}
+
+.usuarios-form input:focus {
+  outline: none;
+  border-color: #8f2f2f;
+  box-shadow: 0 0 10px rgba(143, 47, 47, 0.15);
 }
 
 .usuarios-admin-check,
@@ -96,6 +110,14 @@
   font-weight: 700;
   background: #3f2e1d;
   color: #fff;
+  transition: all 0.3s ease;
+}
+
+.usuarios-actions button:hover,
+.usuarios-card-actions button:hover {
+  background: #5a4429;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .usuarios-actions .ghost {

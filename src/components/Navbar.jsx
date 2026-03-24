@@ -57,13 +57,13 @@ export default function Navbar() {
         <div className="nav-right">
           <ul className="nav-menu">
             <li><Link to="/inicio" className={pathname === "/inicio" ? "active" : ""}>Inicio</Link></li>
-            <li><Link to="/acerca" className={pathname === "/acerca" ? "active" : ""}>Acerca de</Link></li>
             {sesion.esAdmin ? (
               <li><Link to="/menu" className={pathname === "/menu" ? "active" : ""}>Productos</Link></li>
             ) : null}
             {sesion.esAdmin ? (
               <li><Link to="/usuarios" className={pathname === "/usuarios" ? "active" : ""}>Usuarios</Link></li>
             ) : null}
+            <li><Link to="/acerca" className={pathname === "/acerca" ? "active" : ""}>Acerca de</Link></li>
             <li><span className="nav-disabled">Ajustes</span></li>
             <li><span className="nav-disabled">Contacto</span></li>
           </ul>
